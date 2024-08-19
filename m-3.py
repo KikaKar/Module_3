@@ -11,16 +11,21 @@ def get_days_from_today(date):
     return difference
   except ValueError:
         return "Неправильний формат дати, використовуйте формат дати 'РРРР-ММ-ДД'." # Обробка вийнятків у вхідних даних
-print(f"Завдання № 1, кількість днів між датами {get_days_from_today(date)}")
+#print(f"Завдання № 1, кількість днів між датами {get_days_from_today(date)}")
 
 # Завдання № 2
 
-min_num = 1 # Мінімальне можливе число
-max_num = 1000 # Максимальне можливе число
+min_num = 10 # Мінімальне можливе число
+max_num = 14 # Максимальне можливе число
 quantity = 6 # Кількість чисел для вибірки
 
 def get_numbers_ticket(min_num, max_num, quantity):
+
+  if min_num < 1 or max_num > 1000 or quantity > (max_num - min_num + 1): # Перевірка на відповідність заданим обмеженням 
+        return []
+  
   numbers = sample(range(min_num, max_num), quantity) # Додавання у список випадкових чисел
+  numbers.sort()
   return numbers
 
 print(f"Завдання № 2, лотерейний білет {get_numbers_ticket(min_num, max_num, quantity)}")
